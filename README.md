@@ -106,3 +106,11 @@ class _MyAppState extends State<MyApp> {
   }
 }
 ```
+
+####
+其它Flutter plugin
+
+- [支付宝](https://github.com/lishuhao/sy_flutter_alipay)
+- [Flutter组件库](https://github.com/lishuhao/sy_flutter_widgets)
+- [高德定位](https://github.com/lishuhao/sy_flutter_amap)
+- [七牛云存储SDK](https://github.com/lishuhao/sy_flutter_qiniu_storage)
