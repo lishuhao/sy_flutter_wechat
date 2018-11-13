@@ -10,9 +10,12 @@
 - [ ] 分享视频
 - [ ] 分享小程序
 
-分享图片及链接暂时仅支持 **网络图片** ，
-iOS分享网络图片如果不是 **HTTPS** 的话可能会失败，因为iOS ATS问题
-微信分享返回的结果仅代表调用微信分享sdk是否成功，bubu### 使用方法
+分享图片及链接暂时仅支持 **网络图片** ，    
+iOS分享网络图片如果不是 **HTTPS** 的话可能会失败，因为iOS ATS问题。   
+微信分享返回的结果仅代表调用微信分享sdk是否成功，不代表用户确实分享出去了，   
+微信2018年05月16日调整[分享政策](https://mp.weixin.qq.com/cgi-bin/announce?action=getannouncement&announce_id=11526372695t90Dn&version=&lang=zh_CN)。
+
+### 使用方法
 
 #### Android
 无需配置
