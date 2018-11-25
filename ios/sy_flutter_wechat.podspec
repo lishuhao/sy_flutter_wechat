@@ -3,7 +3,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'sy_flutter_wechat'
-  s.version          = '0.0.1'
+  s.version          = '0.2.1'
   s.summary          = '微信SDK flutter插件'
   s.description      = <<-DESC
 微信SDK flutter插件
