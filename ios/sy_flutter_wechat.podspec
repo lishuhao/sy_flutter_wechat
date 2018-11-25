@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   s.dependency 'Flutter'
 
   s.dependency 'WechatOpenSDK'
-
+  s.static_framework = true
   s.ios.deployment_target = '8.0'
 end
 
