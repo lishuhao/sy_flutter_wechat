@@ -4,9 +4,9 @@
 Pod::Spec.new do |s|
   s.name             = 'sy_flutter_wechat'
   s.version          = '0.2.1'
-  s.summary          = '微信SDK flutter插件'
+  s.summary          = 'Wechat SDK flutter plugin'
   s.description      = <<-DESC
-微信SDK flutter插件
+Wechat SDK flutter plugin
                        DESC
   s.homepage         = 'http://example.com'
   s.license          = { :file => '../LICENSE' }

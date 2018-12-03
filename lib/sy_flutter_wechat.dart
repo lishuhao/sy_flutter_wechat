@@ -2,26 +2,43 @@ import 'dart:async';
 
 import 'package:flutter/services.dart';
 
-//分享或收藏的目标场景
+/// share scene
 enum SyShareType {
-  session, //分享给朋友
-  timeline, //分享到朋友圈
-  favorite //添加到微信收藏
+  session,
+
+  /// share to friend
+  timeline,
+
+  /// share to timeline
+  favorite
+
+  /// collect
 }
 
-//支付结果
-enum SyPayResult { success, fail, cancel }
+/// pay result
+enum SyPayResult {
+  /// success
+  success,
 
+  /// fail
+  fail,
+
+  /// cancel
+  cancel,
+}
+
+/// wechat class
 class SyFlutterWechat {
   static const MethodChannel _channel =
       const MethodChannel('sy_flutter_wechat');
 
-  //注册微信app id
+  /// register app id
   static Future<bool> register(String appId) async {
     return await _channel
         .invokeMethod('register', <String, dynamic>{'appId': appId});
   }
 
+  /// shareText
   static Future<bool> shareText(String text, {SyShareType shareType}) async {
     return await _channel.invokeMethod('shareText', <String, dynamic>{
       'text': text,
@@ -29,6 +46,7 @@ class SyFlutterWechat {
     });
   }
 
+  /// shareImage
   static Future<bool> shareImage(String imageUrl,
       {SyShareType shareType}) async {
     return await _channel.invokeMethod('shareImage', <String, dynamic>{
@@ -37,6 +55,7 @@ class SyFlutterWechat {
     });
   }
 
+  /// shareWebPage
   static Future<bool> shareWebPage(
       String title, String description, String imageUrl, String webPageUrl,
       {SyShareType shareType}) async {
@@ -49,7 +68,7 @@ class SyFlutterWechat {
     });
   }
 
-  //支付
+  /// pay
   static Future<SyPayResult> pay(SyPayInfo payInfo) async {
     int payResult = await _channel.invokeMethod('pay', <String, dynamic>{
       'appid': payInfo.appid,
@@ -90,26 +109,42 @@ class SyFlutterWechat {
   }
 }
 
-//支付参数
-//参考微信文档 https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=9_12&index=2
+/// pay args
+///
+/// 参考微信文档 https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=9_12&index=2
 class SyPayInfo {
+  /// appid
   String appid;
+
+  /// partnerid
   String partnerid;
+
+  /// prepayid
   String prepayid;
+
+  /// package
   String package;
+
+  /// noncestr
   String noncestr;
+
+  /// timestamp
   String timestamp;
+
+  /// sign
   String sign;
 
-  SyPayInfo(
-      {this.appid,
-      this.partnerid,
-      this.prepayid,
-      this.package,
-      this.noncestr,
-      this.timestamp,
-      this.sign});
+  SyPayInfo({
+    this.appid,
+    this.partnerid,
+    this.prepayid,
+    this.package,
+    this.noncestr,
+    this.timestamp,
+    this.sign,
+  });
 
+  /// from json
   factory SyPayInfo.fromJson(Map<String, dynamic> json) {
     return SyPayInfo(
       appid: json['appid'],
